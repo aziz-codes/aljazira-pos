@@ -4,7 +4,15 @@ import { ItemContext } from "../context/ItemsContext";
 const Items = () => {
   const { list, setList } = ItemContext();
   const handleClickItem = (item) => {
-    setList([...list, item]);
+    if (list.includes(item)) {
+      let index = list.findIndex((index) => index.name === item.name);
+      if (index !== -1) {
+        list[index].quantity = list[index].quantity += 1;
+        setList([...list]);
+      }
+    } else {
+      setList([...list, item]);
+    }
   };
   return (
     <>

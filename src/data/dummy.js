@@ -10,50 +10,36 @@ export const items = [
     name: "Burger",
     image: burger,
     price: 250,
+    quantity: 1,
   },
   {
     name: "Fried Mutton",
     image: friedMutton,
     price: 930,
+    quantity: 1,
   },
   {
     name: "KFC Pack",
     image: kfcPack,
     price: 1205,
+    quantity: 1,
   },
   {
     name: "Rice",
     image: rice,
     price: 180,
+    quantity: 1,
   },
   {
     name: "Russian Salad",
     image: salad,
     price: 130,
+    quantity: 1,
   },
   {
     name: "Spagetty",
     image: spagetty,
     price: 340,
-  },
-  {
-    name: "Russian Salad",
-    image: salad,
-    price: 130,
-  },
-  {
-    name: "Spagetty",
-    image: spagetty,
-    price: 340,
-  },
-  {
-    name: "Russian Salad",
-    image: salad,
-    price: 130,
-  },
-  {
-    name: "Spagetty has a very long text",
-    image: spagetty,
-    price: 340,
+    quantity: 1,
   },
 ];

@@ -5,7 +5,7 @@ import Table from "./components/Table";
 import { ItemContext } from "./context/ItemsContext";
 
 const App = () => {
-  const { myname, list } = ItemContext();
+  const { list } = ItemContext();
   console.log(list);
   return (
     <div className="flex flex-col h-screen bg-white">
