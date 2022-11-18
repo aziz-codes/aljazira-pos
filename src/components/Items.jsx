@@ -1,7 +1,11 @@
 import React from "react";
 import { items } from "../data/dummy";
-
-const Items = ({ handleClickItem }) => {
+import { ItemContext } from "../context/ItemsContext";
+const Items = () => {
+  const { list, setList } = ItemContext();
+  const handleClickItem = (item) => {
+    setList([...list, item]);
+  };
   return (
     <>
       {items.map((item, index) => (
@@ -9,7 +13,9 @@ const Items = ({ handleClickItem }) => {
           key={index}
           className="flex flex-col shadow-lg bg-white hover:scale-95 transition-all 
      duration-100 ease-in-out w-44 h-44  rounded-xl cursor-pointer p-2"
-          onClick={() => handleClickItem(item)}
+          onClick={() => {
+            handleClickItem(item);
+          }}
         >
           <img
             src={item.image}
