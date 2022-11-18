@@ -36,4 +36,24 @@ export const items = [
     image: spagetty,
     price: 340,
   },
+  {
+    name: "Russian Salad",
+    image: salad,
+    price: 130,
+  },
+  {
+    name: "Spagetty",
+    image: spagetty,
+    price: 340,
+  },
+  {
+    name: "Russian Salad",
+    image: salad,
+    price: 130,
+  },
+  {
+    name: "Spagetty has a very long text",
+    image: spagetty,
+    price: 340,
+  },
 ];
