@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { ItemContext } from "../context/ItemsContext";
-
+import Invoice from "./Invoice";
 const Table = () => {
+  const [open, setOpen] = useState(false);
   const { list } = ItemContext();
 
   let perItemTotal = 0;
@@ -33,7 +34,22 @@ const Table = () => {
         </tbody>
       </table>
 
-      <h2>Total : {perItemTotal}</h2>
+      <div className="flex flex-row p-2 pt-2 w-full justify-between h-14 shadow-xl items-center">
+        <h2 className="font-bold tracking-tight">Total : {perItemTotal}</h2>
+        <h4>
+          Discount
+          <span className="text-sky-500 text-sm font-bold "> 0.00</span>
+        </h4>
+        {open ? <Invoice /> : null}
+        <button
+          className="w-48 h-8 bg-sky-500 font-bold tracking-tight p-1 rounded-sm"
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          Invoice
+        </button>
+      </div>
     </div>
   );
 };
