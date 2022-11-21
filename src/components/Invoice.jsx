@@ -8,29 +8,33 @@ const Invoice = () => {
     setOpen(!open);
   };
   return (
-    <Backdrop open={open}>
-      <div className="flex flex-col items-center w-[500px] h-[600px] shadow-xl bg-white z-50 divide-y-2">
-        <h1 className="font-medium tracking-tight text-lg">
+    <Backdrop open={open} onClick={handleCloseBackdrop}>
+      <div className="flex flex-col items-center w-[400px] h-[600px] shadow-xl bg-white z-50 divide-y-2">
+        <h1 className="font-medium tracking-tight text-lg pb-3 pt-3">
           Your Invoice Details
         </h1>
-        <div className="flex flex-row justify-between w-full pl-1 pr-1">
-          <label>S.no</label>
-          <label>Item</label>
-          <label>Quantity</label>
-          <label>Total</label>
-        </div>
-        <div className="w-full mx-3 flex flex-col">
-          {list.map((item, index) => (
-            <div
-              key={index}
-              className="mx-2 flex justify-between text-center m-2"
-            >
-              <span>{index}</span>
-              <label className="shrink">{item.name}</label>
-              <label>{item.quantity}</label>
-              <label>{item.price}</label>
-            </div>
-          ))}
+
+        <div className="w-full pl-3 pr-3 flex flex-col text-sm">
+          <table className="mt-5">
+            <thead>
+              <tr className="font-bold text-center divide-x-2">
+                <td>S.No</td>
+                <td>Item</td>
+                <td>Qty</td>
+                <td>Price</td>
+              </tr>
+            </thead>
+            <tbody className="mt-2">
+              {list.map((item, index) => (
+                <tr key={index} className="border-b-2 text-center">
+                  <td>{index}</td>
+                  <td>{item.name}</td>
+                  <td>{item.quantity}</td>
+                  <td>{item.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </Backdrop>
