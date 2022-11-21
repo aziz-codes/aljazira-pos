@@ -6,9 +6,11 @@ const Navbar = () => {
   useEffect(() => {
     window.addEventListener("online", () => {
       setOnline(true);
+      alert("online");
     });
     window.addEventListener("offline", () => {
       setOnline(false);
+      alert("offline");
     });
   }, []);
 

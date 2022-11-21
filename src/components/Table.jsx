@@ -18,7 +18,7 @@ const Table = () => {
        scrollbar-thumb-slate-100"
       >
         <table className="w-full">
-          <thead className="sticky -top-1 bg-white z-50 h-10 w-full">
+          <thead className="sticky -top-1 bg-white z-49 h-10 w-full">
             <tr className="border">
               <td>S.No</td>
               <td>Name</td>
