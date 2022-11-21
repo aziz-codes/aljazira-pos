@@ -5,12 +5,10 @@ import { ItemContext } from "./context/ItemsContext";
 const App = () => {
   const { list, setList } = ItemContext();
   const [products, setProducts] = useState(items);
-  const [value, setvalue] = useState("");
 
   const handleChange = (e) => {
-    setvalue(e);
     const filtered = items.filter((item) =>
-      item.name.includes(value.toLowerCase())
+      item.name.includes(e.toLowerCase())
     );
     setProducts(filtered);
   };
@@ -44,6 +42,9 @@ const App = () => {
 
     if (index !== -1) {
       list[index].quantity = list[index].quantity - 1;
+      if (list[index].quantity <= 0) {
+        list[index].quantity = list[index].quantity = 1;
+      }
       setList([...list]);
     }
   };
