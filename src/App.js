@@ -26,13 +26,47 @@ const App = () => {
       setList([...list, item]);
     }
   };
+
+  //function to increment quantity
+
+  const handlePlusQuantity = (name) => {
+    let index = list.findIndex((item) => item.name === name);
+
+    if (index !== -1) {
+      list[index].quantity = list[index].quantity + 1;
+      setList([...list]);
+    }
+  };
+  //handler to decrement quantity
+
+  const handleMinusQuantity = (name) => {
+    let index = list.findIndex((item) => item.name === name);
+
+    if (index !== -1) {
+      list[index].quantity = list[index].quantity - 1;
+      setList([...list]);
+    }
+  };
+  //handler for removing item from table
+
+  const handleRemoveItem = (name) => {
+    setList(
+      list.filter((item) => {
+        return item.name !== name;
+      })
+    );
+  };
   return (
     <div className="flex flex-col h-screen bg-white">
       <Navbar />
 
       <div className="flex flex-col md:flex-row  mt-14 w-full">
         <div className="md:w-1/2 w-full max-h-screen overflow-y-auto scrollbar">
-          <Table />
+          <Table
+            handlePlusQuantity={handlePlusQuantity}
+            handleMinusQuantity={handleMinusQuantity}
+            handleRemoveItem={handleRemoveItem}
+          />
         </div>
 
         <div className="flex flex-wrap w-full md:w-1/2 bg-green  max-h-[500px] ">

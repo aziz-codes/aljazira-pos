@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { ItemContext } from "../context/ItemsContext";
+import {
+  TrashIcon,
+  PlusSmallIcon,
+  MinusSmallIcon,
+} from "@heroicons/react/24/outline";
 import Invoice from "./Invoice";
-const Table = () => {
+const Table = ({
+  handlePlusQuantity,
+  handleMinusQuantity,
+  handleRemoveItem,
+}) => {
   const [open, setOpen] = useState(false);
   const { list } = ItemContext();
 
@@ -19,11 +28,12 @@ const Table = () => {
       >
         <table className="w-full">
           <thead className="sticky -top-1 bg-white z-49 h-10 w-full">
-            <tr className="border">
-              <td>S.No</td>
+            <tr className="">
+              <td>S#</td>
               <td>Name</td>
               <td>Price</td>
-              <td>Qty</td>
+              <td>Quantity</td>
+              <td>Actions</td>
             </tr>
           </thead>
           <tbody>
@@ -32,7 +42,25 @@ const Table = () => {
                 <td>{index}</td>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
-                <td>{item.quantity}</td>
+                <td className="flex flex-row gap-3 ">
+                  <MinusSmallIcon
+                    className="w-4 h-4 bg-slate-200 mt-1 cursor-pointer text-sky-500"
+                    onClick={() => handleMinusQuantity(item.name)}
+                  />
+                  {item.quantity}
+                  <PlusSmallIcon
+                    className="w-4 h-4 bg-slate-200 mt-1 cursor-pointer text-sky-500"
+                    onClick={() => handlePlusQuantity(item.name)}
+                  />
+                </td>
+                <td>
+                  <TrashIcon
+                    className="h-4 w-4 hover:text-red-500 cursor-pointer"
+                    onClick={() => {
+                      handleRemoveItem(item.name);
+                    }}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>
