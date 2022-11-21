@@ -31,7 +31,7 @@ const App = () => {
       <Navbar />
 
       <div className="flex flex-col md:flex-row  mt-14 w-full">
-        <div className="md:w-1/2 w-full max-h-screen overflow-y-auto scrollbar border">
+        <div className="md:w-1/2 w-full max-h-screen overflow-y-auto scrollbar">
           <Table />
         </div>
 
@@ -48,7 +48,7 @@ const App = () => {
           </div>
           <div
             className="flex flex-wrap overflow-auto 
-         border gap-4 justify-center pt-2 scrollbar h-full"
+          gap-4 justify-center pt-2 scrollbar h-full"
           >
             <Items products={products} handleClickItem={handleClickItem} />
           </div>

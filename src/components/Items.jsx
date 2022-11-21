@@ -14,7 +14,7 @@ const Items = ({ products, handleClickItem }) => {
           >
             <img
               src={item.image}
-              className="md:h-28 h-24 max-h-20 rounded-lg bg-white"
+              className="md:h-28 h-24 max-h-20 rounded-lg "
               alt={item.name}
             />
             <div className="text-center pt-2">

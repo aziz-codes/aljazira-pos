@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { WifiIcon } from "@heroicons/react/24/outline";
 const Navbar = () => {
   const [isOnline, setOnline] = useState(navigator.onLine);
-
   useEffect(() => {
     window.addEventListener("online", () => {
       setOnline(true);
