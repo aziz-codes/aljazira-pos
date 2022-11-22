@@ -12,7 +12,7 @@ const Table = ({
   handleRemoveItem,
 }) => {
   const [open, setOpen] = useState(false);
-  const { list } = ItemContext();
+  const { list, darkMode } = ItemContext();
 
   let perItemTotal = 0;
   list.map((item) => {
@@ -21,14 +21,18 @@ const Table = ({
   });
 
   return (
-    <div className="w-full m-2 border relative p-4 divide-y-4">
+    <div className="w-full m-2  relative mx-4 divide-y-2">
       <div
-        className="max-h-[450px] overflow-y-auto scrollbar-track-slate-400 scrollbar-thin scrollbar-corner-rounded
+        className="max-h-[450px] h-[450px] overflow-y-auto scrollbar-track-slate-400 scrollbar-thin scrollbar-corner-rounded
        scrollbar-thumb-slate-100"
       >
-        <table className="w-full">
-          <thead className="sticky -top-1 bg-white z-49 h-10 w-full">
-            <tr className="">
+        <table className="w-full ">
+          <thead
+            className={`sticky -top-1 ${
+              darkMode ? "bg-slate-800 text-white" : "bg-white text-black"
+            } z-49 h-10 w-full`}
+          >
+            <tr className="font-bold tracking-tighter">
               <td>S#</td>
               <td>Name</td>
               <td>Price</td>
@@ -36,7 +40,11 @@ const Table = ({
               <td>Actions</td>
             </tr>
           </thead>
-          <tbody>
+          <tbody
+            className={` ${
+              darkMode ? "bg-slate-800 text-white" : "bg-white text-black"
+            }`}
+          >
             {list.map((item, index) => (
               <tr key={index} className="m-2">
                 <td>{index}</td>
@@ -66,7 +74,11 @@ const Table = ({
           </tbody>
         </table>
       </div>
-      <div className="flex flex-row p-2 pt-2 w-full justify-between h-14 shadow-xl items-center">
+      <div
+        className={`flex flex-row p-2 pt-2 w-full justify-between h-14 shadow-xl items-center  ${
+          darkMode ? "bg-slate-800 text-white" : "bg-white text-black"
+        }`}
+      >
         <h2 className="font-bold tracking-tight">Total : {perItemTotal}</h2>
         <h4>
           Discount

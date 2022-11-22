@@ -37,7 +37,7 @@ export const items = [
     quantity: 1,
   },
   {
-    name: "Spagetty",
+    name: "Spaghetti",
     image: spagetty,
     price: 340,
     quantity: 1,

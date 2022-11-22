@@ -2,15 +2,23 @@ import React, { useState } from "react";
 import { Backdrop } from "@mui/material";
 import { ItemContext } from "../context/ItemsContext";
 const Invoice = () => {
-  const { list } = ItemContext();
+  const { list, darkMode } = ItemContext();
   const [open, setOpen] = useState(true);
   const handleCloseBackdrop = () => {
     setOpen(!open);
   };
   return (
     <Backdrop open={open} onClick={handleCloseBackdrop}>
-      <div className="flex flex-col items-center w-[400px] h-[600px] shadow-xl bg-white z-50 divide-y-2">
-        <h1 className="font-medium tracking-tight text-lg pb-3 pt-3">
+      <div
+        className={`flex flex-col items-center w-[400px] h-[600px] shadow-xl ${
+          darkMode ? "bg-slate-800 text-white" : "bg-white text-black"
+        } z-50 divide-y-2`}
+      >
+        <h1
+          className={`font-medium tracking-tight text-lg pb-3 pt-3 ${
+            darkMode ? "text-white" : "text-black"
+          }`}
+        >
           Your Invoice Details
         </h1>
 

@@ -3,7 +3,7 @@ import { Items, Navbar, Table } from "./components/index";
 import { items } from "./data/dummy";
 import { ItemContext } from "./context/ItemsContext";
 const App = () => {
-  const { list, setList } = ItemContext();
+  const { list, setList, darkMode } = ItemContext();
   const [products, setProducts] = useState(items);
 
   const handleChange = (e) => {
@@ -58,7 +58,11 @@ const App = () => {
     );
   };
   return (
-    <div className="flex flex-col h-screen bg-white">
+    <div
+      className={`flex flex-col h-screen  ${
+        darkMode ? "bg-slate-800 text-white" : "bg-white text-black"
+      }`}
+    >
       <Navbar />
 
       <div className="flex flex-col md:flex-row  mt-14 w-full">
@@ -71,11 +75,15 @@ const App = () => {
         </div>
 
         <div className="flex flex-wrap w-full md:w-1/2 bg-green  max-h-[500px] ">
-          <div className="h-10 w-full bg-white shadow-md flex items-center justify-center p-3">
+          <div
+            className={`h-10 w-full  ${
+              darkMode ? "bg-slate-800 text-white" : "bg-white text-black"
+            } shadow-md flex items-center justify-center p-3 border border-white rounded-md`}
+          >
             <input
               type="text"
               placeholder="Search for Items"
-              className="h-8 rounded-sm w-1/2 p-2 outline-none border border-sky-400 transition-shadow"
+              className="h-8 rounded-lg w-1/2 p-2 outline-none border border-sky-400 transition-shadow text-black"
               onKeyUp={(e) => {
                 handleChange(e.target.value);
               }}
