@@ -8,7 +8,7 @@ const App = () => {
 
   const handleChange = (e) => {
     const filtered = items.filter((item) =>
-      item.name.includes(e.toLowerCase())
+      item.name.toLowerCase().includes(e.toLowerCase())
     );
     setProducts(filtered);
   };
