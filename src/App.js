@@ -78,12 +78,16 @@ const App = () => {
           <div
             className={`h-10 w-full  ${
               darkMode ? "bg-slate-800 text-white" : "bg-white text-black"
-            } shadow-md flex items-center justify-center p-3 border border-white rounded-md`}
+            } shadow-md flex items-center justify-center p-3 rounded-md`}
           >
             <input
               type="text"
               placeholder="Search for Items"
-              className="h-8 rounded-lg w-1/2 p-2 outline-none border border-sky-400 transition-shadow text-black"
+              className={`h-8 rounded-lg w-1/2 p-2 outline-none border  transition-shadow ${
+                darkMode
+                  ? "bg-slate-800 text-white border-gray-500"
+                  : "text-black"
+              }`}
               onKeyUp={(e) => {
                 handleChange(e.target.value);
               }}
